@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box{
+        height: 200px;
+        width: 200px;
+        background-color: aqua;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <container style="text-align: center;">
+    <div>
+      <p>COLOR PICKER</p>
+      <div id="box">       
+      </div>   
+      <input type="color" oninput="handler()">
+      <input type="text" id="picker">
+      <button id="btn" onclick="copy()">copy</button>
+
+      </div>
+    </div>
+  </container>
+  <script>
+    var boxEl = document.getElementById("box");
+    var pic = document.getElementById("picker");
+   function handler(){
+     boxEl.style.backgroundColor=event.target.value;
+     pic.value=event.target.value;
+     console.log(event.target.value)
+   }
+   
+   function copy() {
+  let copyText = document.getElementById("picker");
+  navigator.clipboard.writeText(copyText.value);
+}
+  </script>
+  </body>
+</html>
